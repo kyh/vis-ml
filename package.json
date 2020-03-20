@@ -1,0 +1,43 @@
+{
+  "name": "openai",
+  "description": "Intro to Linear Regression",
+  "version": "0.0.1",
+  "main": "src/index.html",
+  "author": "Kaiyu Hsu",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "eslintConfig": {
+    "extends": [
+      "airbnb",
+      "plugin:prettier/recommended"
+    ],
+    "env": {
+      "browser": true,
+      "node": true
+    }
+  },
+  "prettier": {
+    "singleQuote": true,
+    "trailingComma": "all",
+    "arrowParens": "always"
+  },
+  "dependencies": {
+    "d3": "^5.15.0",
+    "intersection-observer": "^0.7.0",
+    "scrollama": "^2.2.0",
+    "stickyfilljs": "^2.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.2",
+    "eslint-plugin-react": "^7.18.3",
+    "parcel-bundler": "^1.10.3",
+    "prettier": "^1.19.1"
+  }
+}
