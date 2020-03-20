@@ -1,6 +1,6 @@
 {
-  "name": "openai",
-  "description": "Intro to Linear Regression",
+  "name": "ml-vis",
+  "description": "Visual introduction to ml topics",
   "version": "0.0.1",
   "main": "src/index.html",
   "author": "Kaiyu Hsu",
