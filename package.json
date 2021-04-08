@@ -1,13 +1,12 @@
 {
   "name": "ml-vis",
-  "description": "Visual introduction to ml topics",
+  "description": "Visual introduction to machine learning topics",
   "version": "0.0.1",
   "main": "src/index.html",
   "author": "Kaiyu Hsu",
   "scripts": {
     "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html",
-    "deploy": "npm run build && firebase deploy"
+    "build": "parcel build src/index.html"
   },
   "eslintConfig": {
     "extends": [
