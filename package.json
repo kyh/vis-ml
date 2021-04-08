@@ -1,5 +1,5 @@
 {
-  "name": "ml-vis",
+  "name": "vis-ml",
   "description": "Visual introduction to machine learning topics",
   "version": "0.0.1",
   "main": "src/index.html",
