@@ -1,9 +1,9 @@
 # Interactive Visualizations of ML topics
 
-- What is Machine Learning (planned)
+- What is Machine Learning? (planned)
 - Linear Regression
 - Gradient Descent (planned)
-- Deep Learning - Convolutional Neural Networks (planned)
+- Deep Learning (planned)
 
 ### Development
 

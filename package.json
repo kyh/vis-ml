@@ -1,12 +1,12 @@
 {
   "name": "vis-ml",
-  "description": "Visual introduction to machine learning topics",
+  "description": "A visual introduction to machine learning topics",
   "version": "0.0.1",
   "main": "src/index.html",
   "author": "Kaiyu Hsu",
   "scripts": {
-    "dev": "parcel src/index.html",
-    "build": "parcel build src/index.html"
+    "dev": "parcel serve src/*.html",
+    "build": "parcel build src/*.html"
   },
   "eslintConfig": {
     "extends": [
@@ -37,7 +37,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.2",
     "eslint-plugin-react": "^7.18.3",
-    "parcel-bundler": "^1.10.3",
+    "parcel": "next",
     "prettier": "^1.19.1"
   }
 }
