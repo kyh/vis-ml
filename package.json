@@ -5,8 +5,21 @@
   "main": "src/index.html",
   "author": "Kaiyu Hsu",
   "scripts": {
-    "dev": "parcel serve src/*.html",
-    "build": "parcel build src/*.html"
+    "clean": "rm -rf dist",
+    "dev": "parcel serve src/*.html --open",
+    "build": "npm run clean && parcel build src/*.html"
+  },
+  "browser": "dist/index.html",
+  "targets": {
+    "browser": {
+      "engines": {
+        "browsers": [
+          "last 2 versions",
+          "not edge < 76",
+          "not firefox < 67"
+        ]
+      }
+    }
   },
   "eslintConfig": {
     "extends": [
