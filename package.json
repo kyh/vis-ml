@@ -1,13 +1,15 @@
 {
   "name": "vis-ml",
   "description": "A visual introduction to machine learning topics",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "main": "src/index.html",
   "author": "Kaiyu Hsu",
   "scripts": {
-    "clean": "rm -rf dist",
+    "build": "npm run clean && parcel build src/*.html",
+    "clean": "rimraf dist",
     "dev": "parcel serve src/*.html --open",
-    "build": "npm run clean && parcel build src/*.html"
+    "format": "prettier --write src",
+    "postinstall": "husky install"
   },
   "browser": "dist/index.html",
   "targets": {
@@ -21,21 +23,6 @@
       }
     }
   },
-  "eslintConfig": {
-    "extends": [
-      "airbnb",
-      "plugin:prettier/recommended"
-    ],
-    "env": {
-      "browser": true,
-      "node": true
-    }
-  },
-  "prettier": {
-    "singleQuote": true,
-    "trailingComma": "all",
-    "arrowParens": "always"
-  },
   "dependencies": {
     "d3": "^5.15.0",
     "intersection-observer": "^0.7.0",
@@ -43,14 +30,10 @@
     "stickyfilljs": "^2.1.0"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.0.1",
-    "eslint-config-prettier": "^6.10.0",
-    "eslint-plugin-import": "^2.20.0",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.2",
-    "eslint-plugin-react": "^7.18.3",
+    "husky": "^6.0.0",
     "parcel": "next",
-    "prettier": "^1.19.1"
+    "prettier": "^2.2.1",
+    "pretty-quick": "^3.1.0",
+    "rimraf": "^3.0.2"
   }
 }
