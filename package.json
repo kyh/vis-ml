@@ -1,8 +1,7 @@
 {
   "name": "vis-ml",
   "description": "A visual introduction to machine learning topics",
-  "version": "0.1.0",
-  "main": "src/index.html",
+  "version": "0.2.0",
   "author": "Kaiyu Hsu",
   "scripts": {
     "build": "npm run clean && parcel build src/*.html",
@@ -24,8 +23,8 @@
     }
   },
   "dependencies": {
-    "d3": "^5.15.0",
-    "intersection-observer": "^0.7.0",
+    "d3": "^6.6.2",
+    "intersection-observer": "^0.12.0",
     "scrollama": "^2.2.0",
     "stickyfilljs": "^2.1.0"
   },
