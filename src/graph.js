@@ -1,12 +1,4 @@
-import {
-  line,
-  select,
-  scaleLinear,
-  max,
-  axisBottom,
-  axisLeft,
-  event,
-} from 'd3';
+import { line, select, scaleLinear, max, axisBottom, axisLeft } from "d3";
 
 class LinearRegressionGraph {
   constructor(
@@ -21,14 +13,14 @@ class LinearRegressionGraph {
     state = {
       bias: 0,
       weight: 0,
-    },
+    }
   ) {
     this.svg = svg;
     this.data = data;
     this.options = options;
     this.state = state;
-    this.biasText = select('.bias-text');
-    this.weightText = select('.weight-text');
+    this.biasText = select(".bias-text");
+    this.weightText = select(".weight-text");
 
     this.xScale = scaleLinear()
       .domain([0, max(data, (d) => d.x)])
@@ -47,16 +39,16 @@ class LinearRegressionGraph {
     const xAxis = (g) =>
       g
         .attr(
-          'transform',
-          `translate(0, ${this.options.height - this.options.margin.bottom})`,
+          "transform",
+          `translate(0, ${this.options.height - this.options.margin.bottom})`
         )
-        .attr('class', 'xAxis')
+        .attr("class", "xAxis")
         .call(axisBottom(this.xScale));
 
     const yAxis = (g) =>
       g
-        .attr('transform', `translate(${this.options.margin.left}, 0)`)
-        .attr('class', 'yAxis')
+        .attr("transform", `translate(${this.options.margin.left}, 0)`)
+        .attr("class", "yAxis")
         .call(axisLeft(this.yScale));
 
     return { xAxis, yAxis };
@@ -73,32 +65,32 @@ class LinearRegressionGraph {
   }
 
   updateInputValues() {
-    select('#bias').attr('value', this.state.bias);
-    select('#weight').attr('value', this.state.weight);
+    select("#bias").attr("value", this.state.bias);
+    select("#weight").attr("value", this.state.weight);
   }
 
   updateRegressionLine() {
     this.svg
-      .select('.regression-line')
+      .select(".regression-line")
       .datum([
         { x: 0, y: this.state.bias },
         { x: 11, y: this.state.weight * 11 + this.state.bias },
       ])
-      .attr('d', this.d3line);
+      .attr("d", this.d3line);
   }
 
   updateErrorLines() {
     this.svg
-      .selectAll('.error-line')
-      .attr('y1', (d) => this.yScale(d.y))
-      .attr('y2', (d) =>
-        this.yScale(this.state.weight * d.x + this.state.bias),
+      .selectAll(".error-line")
+      .attr("y1", (d) => this.yScale(d.y))
+      .attr("y2", (d) =>
+        this.yScale(this.state.weight * d.x + this.state.bias)
       );
   }
 
   updateErrorText() {
     const error = this.calculateError();
-    select('.error-text').text(error.toFixed(2));
+    select(".error-text").text(error.toFixed(2));
   }
 
   updateBiasText() {
@@ -122,64 +114,49 @@ class LinearRegressionGraph {
     const target = this.svg;
     const { data } = this;
 
-    const div = select('body')
-      .append('div')
-      .attr('class', 'tooltip')
-      .style('opacity', 0);
+    const div = select("body")
+      .append("div")
+      .attr("class", "tooltip")
+      .style("opacity", 0);
 
-    const g = target
-      .selectAll('g')
-      .data(data)
-      .join('g');
+    const g = target.selectAll("g").data(data).join("g");
 
     // First, let's make the scatterplot
-    g.append('line')
-      .classed('error-line', true)
-      .attr('transform', (d) => `translate(${graph.xScale(d.x)},0)`)
-      .style('cursor', 'pointer')
-      .on('mouseover', (d) => {
-        div
-          .transition()
-          .duration(200)
-          .style('opacity', 0.9);
+    g.append("line")
+      .classed("error-line", true)
+      .attr("transform", (d) => `translate(${graph.xScale(d.x)},0)`)
+      .style("cursor", "pointer")
+      .on("mouseover", (event, d) => {
+        div.transition().duration(200).style("opacity", 0.9);
         div
           .html(`Error: ${this.getErrorForDatapoint(d).toFixed(0)}`)
-          .style('left', `${event.pageX - 65}px`)
-          .style('top', `${event.pageY - 20}px`);
+          .style("left", `${event.pageX - 65}px`)
+          .style("top", `${event.pageY - 20}px`);
       })
-      .on('mouseout', () => {
-        div
-          .transition()
-          .duration(200)
-          .style('opacity', 0);
+      .on("mouseout", () => {
+        div.transition().duration(200).style("opacity", 0);
       });
     graph.updateErrorLines();
 
-    g.append('circle')
-      .classed('data-point', true)
-      .attr('r', 3)
-      .attr('cx', (d) => graph.xScale(d.x))
-      .attr('cy', (d) => graph.yScale(d.y))
-      .style('cursor', 'pointer')
-      .on('mouseover', (d) => {
-        div
-          .transition()
-          .duration(200)
-          .style('opacity', 0.9);
+    g.append("circle")
+      .classed("data-point", true)
+      .attr("r", 3)
+      .attr("cx", (d) => graph.xScale(d.x))
+      .attr("cy", (d) => graph.yScale(d.y))
+      .style("cursor", "pointer")
+      .on("mouseover", (event, d) => {
+        div.transition().duration(200).style("opacity", 0.9);
         div
           .html(`Salary: $${d.y}`)
-          .style('left', `${event.pageX - 30}px`)
-          .style('top', `${event.pageY - 50}px`);
+          .style("left", `${event.pageX - 30}px`)
+          .style("top", `${event.pageY - 50}px`);
       })
-      .on('mouseout', () => {
-        div
-          .transition()
-          .duration(200)
-          .style('opacity', 0);
+      .on("mouseout", () => {
+        div.transition().duration(200).style("opacity", 0);
       });
 
     // Next, we'll draw the regression line
-    target.append('path').classed('regression-line', true);
+    target.append("path").classed("regression-line", true);
     graph.updateRegressionLine();
 
     graph.updateErrorText();
@@ -188,8 +165,8 @@ class LinearRegressionGraph {
 
     // Lastly, let's adding the axis
     const { xAxis, yAxis } = graph.createAxis();
-    target.append('g').call(xAxis);
-    target.append('g').call(yAxis);
+    target.append("g").call(xAxis);
+    target.append("g").call(yAxis);
   }
 }
 
