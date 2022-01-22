@@ -1,4 +1,3 @@
-import "intersection-observer";
 import scrollama from "scrollama";
 import Stickyfill from "stickyfilljs";
 import { select, selectAll } from "d3";

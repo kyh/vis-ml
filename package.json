@@ -3,27 +3,16 @@
   "description": "A visual introduction to machine learning topics",
   "version": "0.3.0",
   "author": "Kaiyu Hsu",
+  "source": "src/index.html",
   "scripts": {
-    "build": "npm run clean && parcel build src/*.html",
+    "build": "npm run clean && parcel build",
     "clean": "rimraf dist",
-    "dev": "parcel serve src/*.html --open",
+    "dev": "parcel --open",
     "format": "prettier --write src",
     "postinstall": "husky install"
   },
-  "targets": {
-    "browser": {
-      "engines": {
-        "browsers": [
-          "last 2 versions",
-          "not edge < 76",
-          "not firefox < 67"
-        ]
-      }
-    }
-  },
   "dependencies": {
     "d3": "^7.3.0",
-    "intersection-observer": "^0.12.0",
     "lodash": "^4.17.21",
     "scrollama": "^3.0.3",
     "stickyfilljs": "^2.1.0"
