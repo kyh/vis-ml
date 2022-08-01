@@ -49,7 +49,8 @@ h6 {
 }
 
 p {
-  margin-top: 0;
+  margin: 0;
+  padding-bottom: 12px;
 }
 
 .italics {
@@ -369,4 +370,46 @@ line {
   background: rgba(0, 0, 0, 0.8);
   border-radius: 4px;
   pointer-events: none;
+}
+
+@media screen and (max-width: 600px) {
+  main {
+    padding: 0 12px;
+  }
+
+  article {
+    padding: 0;
+  }
+
+  figure {
+    position: fixed;
+  }
+
+  .step p {
+    padding-left: 12px;
+    padding-right: 12px;
+    background: #fff;
+    border-radius: 4px;
+  }
+
+  .step p:first-child {
+    padding-top: 12px;
+  }
+
+  .step p:last-child {
+    padding-bottom: 12px;
+  }
+
+  .step.is-active {
+    position: relative;
+    z-index: 1;
+  }
+
+  #scrolly {
+    flex-direction: column;
+  }
+
+  .total {
+    text-align: left;
+  }
 }
