@@ -1,6 +1,7 @@
 import scrollama from "scrollama";
 import Stickyfill from "stickyfilljs";
 import { select, selectAll } from "d3";
+import "./style.css";
 import data from "./data";
 import { calculateAverage, between, animateLine } from "./utils";
 import LinearRegressionGraph from "./graph";
